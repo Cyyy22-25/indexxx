@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Sheil</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#e4f8d8; --card:#fffdf4; --ink:#1f4a2c; --soft:#4f7a58; --leaf:#3da35d; --deep:#237a43; --pink:#ff8fb1; --red:#e84a5f; --line:#a9dc95;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#10261a; --card:#1a3a27; --ink:#e8f9de; --soft:#a8cfae; --leaf:#5fc47e; --deep:#2e9556; --pink:#ff9fbd; --red:#ff6b80; --line:#2f5e41;
+  }
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:radial-gradient(var(--line) 2.5px,transparent 3px);background-size:34px 34px;color:var(--ink);font-family:Fredoka,"Trebuchet MS",system-ui,sans-serif;font-size:18px;line-height:1.6}
+main{max-width:620px;margin:0 auto;padding:0 22px}
+h1,h2{font-weight:600;margin:0}
+.hero{text-align:center;padding:9vh 0 5vh}
+.frog{width:210px;max-width:60vw;display:block;margin:0 auto 10px}
+.lid{transform-origin:center;transform-box:fill-box;animation:blink 5s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+h1{font-size:clamp(2.4rem,10vw,3.6rem);line-height:1.1;color:var(--deep)}
+.hero p{color:var(--soft);margin:.6em auto 0;max-width:28ch}
+.card{background:var(--card);border:3px solid var(--leaf);border-radius:36px;padding:28px 24px;margin:4vh 0;position:relative}
+.card h2{text-align:center;font-size:2rem;color:var(--deep);margin-bottom:.4em}
+.pad{position:absolute;top:-18px;right:22px;width:46px;height:30px;background:var(--leaf);border-radius:50%;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,0 62%,50% 50%,0 38%)}
+.item{display:flex;gap:10px;align-items:baseline;padding:12px 0;border-bottom:2px dashed var(--line)}
+.item:last-child{border:0}
+.item b{font-weight:500}
+.item small{display:block;color:var(--soft);font-size:.82em}
+.sp{flex:1}
+.price{color:var(--red);font-weight:500;text-align:right}
+.brew{text-align:center}
+.cup{position:relative;width:150px;height:130px;margin:14px auto 24px}
+.cup .body{position:absolute;left:0;top:0;width:128px;height:118px;border:4px solid var(--deep);border-radius:8px 8px 64px 64px;overflow:hidden;background:var(--card)}
+.cup .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--leaf);transition:height 1.6s ease}
+.cup .heart{position:absolute;left:0;right:0;bottom:28px;text-align:center;color:var(--card);font-size:2.2rem;opacity:0;transition:opacity 1s 1.2s}
+.cup .handle{position:absolute;right:4px;top:22px;width:38px;height:48px;border:4px solid var(--deep);border-left:0;border-radius:0 30px 30px 0}
+.cup.full .fill{height:86%}.cup.full .heart{opacity:1}
+button{font:inherit;font-weight:500;background:var(--deep);color:#fff;border:0;border-radius:999px;padding:14px 30px;cursor:pointer;box-shadow:0 4px 0 #15532e;transition:transform .15s}
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 #15532e}
+button:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+#reason{min-height:5.2em;margin:22px auto 0;max-width:28ch;font-size:1.45rem;line-height:1.3;color:var(--ink);font-weight:500}
+.note{text-align:center;padding:2vh 0 14vh}
+.note p{font-size:1.25rem;margin:0 0 1em}
+.sig{color:var(--red);font-weight:600}
+.big{font-size:2rem;line-height:1.25}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hearts span{position:absolute;bottom:-40px;color:var(--pink);opacity:0;animation:float 9s linear infinite}
+@keyframes float{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-110vh);opacity:0}}
+.hearts span:nth-child(1){left:8%;font-size:20px;animation-delay:0s}
+.hearts span:nth-child(2){left:28%;font-size:28px;animation-delay:2.5s}
+.hearts span:nth-child(3){left:52%;font-size:18px;animation-delay:5s}
+.hearts span:nth-child(4){left:74%;font-size:26px;animation-delay:1.5s}
+.hearts span:nth-child(5){left:90%;font-size:22px;animation-delay:6.5s}
+main{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.hearts{display:none}}
+@media (prefers-reduced-motion:reduce){.lid{animation:none}.cup .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span></div>
+<main>
+  <section class="hero">
+    <svg class="frog" viewBox="0 0 200 170" role="img" aria-label="A cute green frog with big eyes and a blushing smile">
+      <ellipse cx="100" cy="100" rx="86" ry="62" fill="#5fc25a" stroke="#237a43" stroke-width="4"/>
+      <circle cx="62" cy="52" r="30" fill="#5fc25a" stroke="#237a43" stroke-width="4"/>
+      <circle cx="138" cy="52" r="30" fill="#5fc25a" stroke="#237a43" stroke-width="4"/>
+      <circle cx="62" cy="52" r="21" fill="#fff" stroke="#237a43" stroke-width="3"/>
+      <circle cx="138" cy="52" r="21" fill="#fff" stroke="#237a43" stroke-width="3"/>
+      <g class="lid"><g id="pL"><circle cx="62" cy="52" r="9" fill="#1f2a1f"/><circle cx="65" cy="48" r="3" fill="#fff"/></g><g id="pR"><circle cx="138" cy="52" r="9" fill="#1f2a1f"/><circle cx="141" cy="48" r="3" fill="#fff"/></g></g>
+      <ellipse cx="46" cy="104" rx="14" ry="9" fill="#ff8fb1" opacity=".85"/>
+      <ellipse cx="154" cy="104" rx="14" ry="9" fill="#ff8fb1" opacity=".85"/>
+      <path d="M62 96 Q100 138 138 96" fill="#d63a52" stroke="#237a43" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M84 112 Q100 124 116 112" fill="#ff8fb1"/>
+      <path d="M100 18c-8-10-22 2-10 12l10 9 10-9c12-10-2-22-10-12z" fill="#e84a5f"/>
+    </svg>
+    <h1>For My Baby Girl</h1>
+    <p>Special na coffee menu para sayo bal, I love you</p>
+  </section>
+
+  <section class="card" aria-labelledby="menu-title">
+    <span class="pad" aria-hidden="true"></span>
+    <h2 id="menu-title">Pond Café for Sheil &amp; Me</h2>
+    <div class="item"><div><b>Your laugh</b><small>Better than the first sip</small></div><span class="sp"></span><span class="price">free refills</span></div>
+    <div class="item"><div><b>Your hand in mine</b><small>Served warm</small></div><span class="sp"></span><span class="price">forever</span></div>
+    <div class="item"><div><b>The way you say my name</b><small>Sweet, with a little kick</small></div><span class="sp"></span><span class="price">priceless</span></div>
+  </section>
+
+  <section class="card brew">
+    <h2>Brew me a reason</h2>
+    <div class="cup" id="cup" aria-hidden="true"><div class="body"><div class="fill"></div><div class="heart">♥</div></div><div class="handle"></div></div>
+    <button id="btn" type="button">Pour another cup</button>
+    <p id="reason" aria-live="polite"></p>
+  </section>
+
+  <section class="note">
+    <p class="sig big">I love you, my palagi ko ♥</p>
+  </section>
+</main>
+<script>
+var reasons=[
+  "Bakit Ang Ganda mo palagi.",
+  "I love you my baby girl .",
+  "Super Love na Love kita.",
+  "Konting tiis na lang makakabawi na ko sayo.",
+  "Missing you everyday.",
+  "Never mapapagod mag hatid sundo sayo bebe .",
+  "More roadtrips with you kasama ang anak natin."
+];
+var i=-1,cup=document.getElementById('cup'),out=document.getElementById('reason');
+document.getElementById('btn').addEventListener('click',function(){
+  cup.classList.remove('full');
+  void cup.offsetWidth;
+  i=(i+1)%reasons.length;
+  setTimeout(function(){cup.classList.add('full');out.textContent=reasons[i];},50);
+});
+(function(){
+  var frog=document.querySelector('.frog'),eyes=[{el:document.getElementById('pL'),cx:62,cy:52},{el:document.getElementById('pR'),cx:138,cy:52}];
+  function look(x,y){
+    var r=frog.getBoundingClientRect(),s=r.width/200;
+    eyes.forEach(function(e){
+      var dx=x-(r.left+e.cx*s),dy=y-(r.top+e.cy*s),d=Math.sqrt(dx*dx+dy*dy)||1,m=Math.min(9,d/s);
+      e.el.setAttribute('transform','translate('+(dx/d*m).toFixed(2)+' '+(dy/d*m).toFixed(2)+')');
+    });
+  }
+  document.addEventListener('pointermove',function(ev){look(ev.clientX,ev.clientY);});
+  document.addEventListener('touchmove',function(ev){var t=ev.touches[0];if(t)look(t.clientX,t.clientY);},{passive:true});
+  document.addEventListener('touchstart',function(ev){var t=ev.touches[0];if(t)look(t.clientX,t.clientY);},{passive:true});
+})();
+</script>
+</body>
+</html>
